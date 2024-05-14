@@ -1,0 +1,45 @@
+// create a variable to hold your NFT's
+const nftHolder = []
+// this function will take in some values as parameters, create an
+// NFT object using the parameters passed to it for its metadata, 
+// and store it in the variable above.
+function mintNFT(bookTitle, bookAuthor, bookGenre, datePublished, bookPrice) {
+    const NFT = {
+        "book":  bookTitle,
+        "author": bookAuthor,
+        "genre": bookGenre,
+        "datepublished": datePublished,
+        "price": bookPrice
+    }
+    nftHolder.push (NFT);
+    console.log ("Minted: " + bookTitle);
+}
+
+// create a "loop" that will go through an "array" of NFT's
+// and print their metadata with console.log()
+function listnftHolder() {
+    for(let i = 0; i < nftHolder.length; i++){
+        console.log("\nBook ID \t" + (i + 1));
+        console.log("\nBook Title: " + nftHolder[i].book);
+        console.log("Author: " + nftHolder[i].author);
+        console.log("Genre: " + nftHolder[i].genre);
+        console.log("Date Published: " + nftHolder[i].datepublished)
+        console.log("Price: " + nftHolder[i].price);
+    }
+
+}
+
+// print the total number of NFTs we have minted to the console
+function getTotalSupply() {
+    return nftHolder.length;
+}
+
+// call your functions below this line
+mintNFT ("IT", "Stephen King", "Horror", "September 15, 1986","3500");
+mintNFT ("A Map of Days", "Ransom Riggs", "Young Adult Fiction, Fantasy", "October 2, 2018","950");
+mintNFT ("Dune", "Frank Herbert", "Science Fiction", "August 1, 1965","2000");
+mintNFT ("Call Me by Your Name", "André Aciman", "Romance", "January 23, 2007","750");
+listnftHolder();
+
+console.log("------------------------------------");
+console.log("\nTotal Number of Books: " + getTotalSupply());
